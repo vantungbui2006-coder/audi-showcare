@@ -1,0 +1,123 @@
+/* =========================================================
+   contact.css — Style cho section "Để lại thông tin liên hệ"
+   Dùng chung cho mọi trang có nhúng form này (index.php, car-detail.php)
+   ========================================================= */
+
+.contact-section {
+  padding: 90px 60px;
+  background: linear-gradient(180deg, transparent 0%, rgba(200, 16, 46, 0.06) 100%);
+  border-top: 1px solid var(--color-border);
+}
+
+.contact-section__inner {
+  max-width: 760px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.contact-section h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  margin-bottom: 14px;
+}
+
+.contact-section p.text-muted {
+  margin-bottom: 40px;
+  font-size: 15px;
+}
+
+/* ---------- Alert thông báo trạng thái gửi ---------- */
+.alert {
+  max-width: 760px;
+  margin: 0 auto 30px;
+  padding: 16px 24px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+}
+
+.alert-success {
+  background: rgba(46, 160, 67, 0.12);
+  border: 1px solid rgba(46, 160, 67, 0.4);
+  color: #6fdd8c;
+}
+
+.alert-error {
+  background: rgba(200, 16, 46, 0.12);
+  border: 1px solid rgba(200, 16, 46, 0.4);
+  color: #ff6b7d;
+}
+
+/* ---------- Form ---------- */
+.contact-form {
+  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.contact-form .full-width {
+  grid-column: 1 / -1;
+}
+
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  margin-bottom: 8px;
+}
+
+.form-group label .required {
+  color: var(--color-accent-red);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  color: var(--color-text-light);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 300;
+  transition: border-color 0.25s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: var(--color-accent-red);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.form-group select {
+  cursor: pointer;
+}
+
+.contact-form .btn {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 6px;
+  border: none;
+  font-size: 13px;
+}
+
+@media (max-width: 640px) {
+  .contact-section {
+    padding: 60px 20px;
+  }
+  .contact-form {
+    grid-template-columns: 1fr;
+  }
+}

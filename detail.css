@@ -1,0 +1,230 @@
+/* =========================================================
+   detail.css — Style cho car-detail.php
+   Bố cục: ảnh lớn phía trên -> tên xe cỡ lớn bên dưới -> mô tả nhẹ
+   Đúng yêu cầu catalogue: "Phần dưới: tên mẫu xe font đậm cỡ lớn,
+   dưới đó là mô tả ngắn font nhẹ hơn"
+   ========================================================= */
+
+.detail-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 30px 60px 0;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  transition: color 0.25s ease;
+}
+
+.detail-back:hover {
+  color: var(--color-text-light);
+}
+
+/* ---------- Ảnh lớn đầu trang ---------- */
+.detail-hero {
+  margin: 30px 60px 0;
+  height: 520px;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.detail-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detail-hero .no-image-label {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  letter-spacing: 0.1em;
+  color: rgba(255, 255, 255, 0.35);
+  text-transform: uppercase;
+}
+
+.detail-hero__badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 6px 16px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  border-radius: 20px;
+}
+
+/* ---------- Tên xe + mô tả ngắn ---------- */
+.detail-title {
+  padding: 50px 60px 0;
+  text-align: center;
+}
+
+.detail-title__name {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  font-size: clamp(40px, 6vw, 80px);
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.detail-title__year {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+}
+
+.detail-title__desc {
+  max-width: 640px;
+  margin: 0 auto;
+  font-weight: 300;
+  font-size: 17px;
+  line-height: 1.8;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Thanh thông số nhanh ---------- */
+.detail-specs {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 50px 60px 0;
+  padding: 30px 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.detail-specs__item {
+  flex: 1;
+  min-width: 140px;
+  text-align: center;
+  padding: 0 20px;
+  border-right: 1px solid var(--color-border);
+}
+
+.detail-specs__item:last-child {
+  border-right: none;
+}
+
+.detail-specs__item .value {
+  font-family: var(--font-heading);
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--color-accent-red);
+}
+
+.detail-specs__item .label {
+  font-size: 11px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 6px;
+}
+
+/* ---------- Mô tả đầy đủ ---------- */
+.detail-full-desc {
+  max-width: 720px;
+  margin: 50px auto 0;
+  padding: 0 60px;
+  text-align: center;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--color-text-muted);
+}
+
+/* ---------- Section bộ phận xe ---------- */
+.parts-section {
+  padding: 90px 60px;
+}
+
+.parts-section__heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.parts-section__heading h2 {
+  font-size: clamp(26px, 4vw, 38px);
+}
+
+.parts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 28px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.part-card {
+  background: linear-gradient(160deg, #111 0%, #0a0a0a 100%);
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.3s ease;
+}
+
+.part-card:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.part-card__image {
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(200, 16, 46, 0.08), transparent);
+}
+
+.part-card__image .no-image-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+}
+
+.part-card__body {
+  padding: 20px 22px 24px;
+}
+
+.part-card__name {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-bottom: 10px;
+}
+
+.part-card__desc {
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--color-text-muted);
+}
+
+/* ---------- CTA giữa trang ---------- */
+.detail-cta {
+  text-align: center;
+  padding: 0 60px 60px;
+}
+
+@media (max-width: 768px) {
+  .detail-back, .detail-title,
+  .detail-full-desc, .parts-section, .detail-cta {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .detail-hero, .detail-specs {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  .detail-hero { height: 320px; }
+  .detail-specs__item { min-width: 100px; }
+}

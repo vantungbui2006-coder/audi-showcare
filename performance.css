@@ -1,0 +1,212 @@
+/* =========================================================
+   performance.css — Section "TRẢI NGHIỆM HIỆU SUẤT" (car-detail.php)
+   ========================================================= */
+
+.performance-section {
+  padding: 90px 60px;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  background: radial-gradient(circle at 50% 0%, rgba(200, 16, 46, 0.06) 0%, transparent 60%);
+}
+
+.performance-section__heading {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.performance-section__heading h2 {
+  font-size: clamp(26px, 4vw, 38px);
+  margin-bottom: 10px;
+}
+
+.performance-section__heading p {
+  max-width: 520px;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+/* ---------- Đồng hồ (gauge) ---------- */
+.gauge-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 32px;
+  max-width: 700px;
+  margin: 0 auto 40px;
+}
+
+.gauge-card {
+  background: linear-gradient(160deg, #111 0%, #0a0a0a 100%);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 28px 24px 26px;
+  text-align: center;
+}
+
+.gauge {
+  width: 100%;
+  max-width: 240px;
+  margin-bottom: 8px;
+}
+
+.gauge-track {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.08);
+  stroke-width: 14;
+  stroke-linecap: round;
+}
+
+.gauge-fill {
+  fill: none;
+  stroke: var(--color-accent-red);
+  stroke-width: 14;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.05s linear;
+}
+
+.gauge-needle {
+  stroke: #fff;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.gauge-pivot {
+  fill: #fff;
+}
+
+.gauge-value {
+  font-family: var(--font-heading);
+  font-size: 30px;
+  font-weight: 700;
+  margin-top: 6px;
+}
+
+.gauge-unit {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--color-text-muted);
+}
+
+.gauge-label {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin: 4px 0 18px;
+}
+
+.gauge-btn {
+  font-size: 12px;
+  padding: 11px 22px;
+}
+
+.gauge-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- Bài test tăng tốc 0-100km/h ---------- */
+.accel-tester {
+  max-width: 700px;
+  margin: 0 auto;
+  background: linear-gradient(160deg, #111 0%, #0a0a0a 100%);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  padding: 28px 32px 32px;
+}
+
+.accel-tester__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+}
+
+.accel-tester__header h3 {
+  letter-spacing: 0.05em;
+}
+
+.accel-timer {
+  font-family: var(--font-heading);
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-accent-red);
+  min-width: 70px;
+  text-align: right;
+}
+
+.accel-track {
+  position: relative;
+  height: 60px;
+  margin-bottom: 24px;
+}
+
+.accel-track__line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: repeating-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.2) 0px,
+    rgba(255, 255, 255, 0.2) 16px,
+    transparent 16px,
+    transparent 32px
+  );
+  transform: translateY(-50%);
+}
+
+.accel-car {
+  position: absolute;
+  top: 50%;
+  left: 0%;
+  transform: translate(-50%, -50%);
+  font-size: 30px;
+  transition: none;
+  z-index: 2;
+  filter: drop-shadow(0 0 8px rgba(200, 16, 46, 0.6));
+}
+
+.accel-track__finish {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  color: var(--color-text-muted);
+  background: var(--color-bg-dark);
+  padding-left: 8px;
+}
+
+.accel-tester__footer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.accel-result {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.accel-result.show {
+  opacity: 1;
+  transform: translateY(0);
+  color: var(--color-accent-red);
+}
+
+@media (max-width: 640px) {
+  .performance-section {
+    padding: 60px 20px;
+  }
+  .accel-tester {
+    padding: 22px 18px 26px;
+  }
+}

@@ -1,0 +1,162 @@
+/* =========================================================
+   style.css — Style dùng chung cho TOÀN BỘ site
+   Font: Poppins (tiêu đề, đậm) + Inter (mô tả, nhẹ)
+   Tông màu: gradient đen -> đỏ đậm, phong cách catalogue xe sang
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700;800&family=Inter:wght@300;400;500&display=swap');
+
+:root {
+  --color-bg-dark:     #0a0a0a;
+  --color-bg-darker:   #050505;
+  --color-accent-red:  #C8102E;
+  --color-accent-red-dark: #6b0f1a;
+  --color-text-light:  #f5f5f5;
+  --color-text-muted:  #a0a0a0;
+  --color-border:      rgba(255, 255, 255, 0.08);
+
+  --font-heading: 'Poppins', sans-serif;
+  --font-body:    'Inter', sans-serif;
+}
+
+/* Reset cơ bản */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-body);
+  background: linear-gradient(180deg, var(--color-bg-darker) 0%, var(--color-bg-dark) 100%);
+  color: var(--color-text-light);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* ---------- Typography chuẩn catalogue ---------- */
+h1, h2, h3, .heading {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+  font-weight: 300;
+}
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 60px;
+  background: rgba(5, 5, 5, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.site-header .logo {
+  font-family: var(--font-heading);
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+}
+
+.site-header nav ul {
+  display: flex;
+  gap: 40px;
+}
+
+.site-header nav a {
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+  transition: color 0.25s ease;
+}
+
+.site-header nav a:hover,
+.site-header nav a.active {
+  color: var(--color-text-light);
+}
+
+/* ---------- Button dùng chung ---------- */
+.btn {
+  display: inline-block;
+  padding: 14px 32px;
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: var(--color-accent-red);
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background: var(--color-accent-red-dark);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: rgba(255, 255, 255, 0.3);
+  color: var(--color-text-light);
+}
+
+.btn-outline:hover {
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  padding: 40px 60px;
+  border-top: 1px solid var(--color-border);
+  color: var(--color-text-muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 768px) {
+  .site-header {
+    padding: 18px 20px;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .site-header nav ul {
+    gap: 20px;
+  }
+}
