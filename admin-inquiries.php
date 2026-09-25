@@ -40,7 +40,10 @@ $inquiries = $stmt->fetchAll();
 <body>
     <header class="site-header">
         <a href="index.php" class="logo">AUDI SHOWCASE — ADMIN</a>
-        <nav><ul><li><a href="index.php">← Về trang chủ</a></li></ul></nav>
+        <nav><ul>
+            <li><a href="admin-orders.php">Đơn hàng</a></li>
+            <li><a href="index.php">← Về trang chủ</a></li>
+        </ul></nav>
     </header>
 
     <div class="admin-wrap">

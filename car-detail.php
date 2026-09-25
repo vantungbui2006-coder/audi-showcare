@@ -105,8 +105,9 @@ $redirect_to       = 'car-detail.php?slug=' . urlencode($car['model_slug']);
 
     <p class="detail-full-desc"><?= htmlspecialchars($car['full_desc']) ?></p>
 
-    <div class="detail-cta" style="margin-top: 40px;">
-        <a href="#contact" class="btn btn-primary">Liên hệ tư vấn xe này</a>
+    <div class="detail-cta" style="margin-top: 40px; display: flex; gap: 14px; justify-content: center; flex-wrap: wrap;">
+        <a href="order.php?slug=<?= urlencode($car['model_slug']) ?>" class="btn btn-primary">Đặt mua xe này</a>
+        <a href="#contact" class="btn btn-outline">Liên hệ tư vấn</a>
     </div>
 
     <section class="performance-section"

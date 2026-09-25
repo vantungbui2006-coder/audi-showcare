@@ -10,6 +10,7 @@
  */
 
 require_once 'includes/db.php';
+require_once 'includes/mailer.php';
 
 // Chỉ chấp nhận POST — chặn truy cập trực tiếp qua URL
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
@@ -80,6 +81,30 @@ $stmt->execute([
     $referral ?: null,
     $message ?: null,
 ]);
+
+// ---------- Gửi email thông báo cho admin ----------
+// Đặt SAU khi INSERT đã chạy thành công: nếu gửi email lỗi, dữ liệu khách
+// hàng vẫn được lưu an toàn trong database — không phụ thuộc vào email.
+$carName = 'Chưa xác định';
+if ($car_id) {
+    $carStmt = $pdo->prepare("SELECT model_name FROM cars WHERE id = ?");
+    $carStmt->execute([$car_id]);
+    $carName = $carStmt->fetchColumn() ?: 'Chưa xác định';
+}
+
+$emailBody = "
+    <h2>Khách hàng mới để lại thông tin liên hệ</h2>
+    <p><strong>Họ tên:</strong> " . htmlspecialchars($full_name) . "</p>
+    <p><strong>Số điện thoại:</strong> " . htmlspecialchars($phone) . "</p>
+    <p><strong>Email:</strong> " . htmlspecialchars($email ?: '—') . "</p>
+    <p><strong>Địa chỉ:</strong> " . htmlspecialchars($address ?: '—') . "</p>
+    <p><strong>Người giới thiệu:</strong> " . htmlspecialchars($referral ?: '—') . "</p>
+    <p><strong>Xe quan tâm:</strong> " . htmlspecialchars($carName) . "</p>
+    <p><strong>Lời nhắn:</strong> " . htmlspecialchars($message ?: '—') . "</p>
+    <hr>
+    <p style='color:#888;font-size:12px;'>Email tự động từ website Audi Showcase (đồ án học tập).</p>
+";
+sendAdminNotification('🔔 Khách hàng mới liên hệ: ' . $full_name, $emailBody);
 
 header("Location: $redirect_to{$separator}inquiry=success#contact");
 exit;
